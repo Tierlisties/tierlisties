@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Simple Start Page</title>
+    <title>Simple Repeater</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            padding: 20px;
         }
 
         .container {
             text-align: center;
+            margin-top: 20px;
         }
 
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #666;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 50px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Website!</h1>
-        <p>This is a simple HTML start page.</p>
-        <a href="https://github.com/">Visit my GitHub Profile</a>
+        <h1>Simple Repeater</h1>
+        <input type="text" id="inputText" placeholder="Enter text to repeat">
+        <input type="number" id="repeatCount" min="1" placeholder="Repeat count">
+        <button onclick="repeatText()">Repeat</button>
+
+        <div id="output"></div>
     </div>
+
+    <script>
+        function repeatText() {
+            var inputText = document.getElementById("inputText").value;
+            var repeatCount = document.getElementById("repeatCount").value;
+            var output = "";
+
+            for (var i = 0; i < repeatCount; i++) {
+                output += inputText + " ";
+            }
+
+            document.getElementById("output").innerText = output.trim();
+        }
+    </script>
 </body>
 </html>
